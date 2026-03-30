@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VanDeusen & Son Plumbing and Mechanical — Top-rated local plumbing in Northwest Indiana. 5.0 stars. Available 24/7. Call (219) 669-1858.">
+<title>VanDeusen & Son Plumbing & Mechanical | Northwest Indiana | 24/7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --blue: #1a3d6e;
+    --mid-blue: #1e5296;
+    --bright-blue: #2b7fd4;
+    --steel: #7a8fa6;
+    --steel-light: #a8bbd0;
+    --silver: #c8d8e8;
+    --ice: #e8f2fb;
+    --white: #f8fbff;
+    --cream: #f0f4f8;
+    --gold: #c8971a;
+    --gold-light: #e8b84b;
+    --text-dark: #0d1f35;
+    --text-mid: #2d4a6a;
+    --text-light: #5a7a9a;
+    --pipe-gradient: linear-gradient(135deg, #7a8fa6 0%, #c0d0e0 40%, #8a9fb8 60%, #5a7090 100%);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── STICKY HEADER ─── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 22, 40, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(43, 127, 212, 0.25);
+    transition: box-shadow 0.3s;
+  }
+  header.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.4); }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: var(--pipe-gradient);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .logo-text {
+    font-family: 'Oswald', sans-serif;
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+  }
+  .logo-text span { color: var(--gold-light); display: block; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.08em; }
+
+  nav { display: flex; align-items: center; gap: 6px; }
+  nav a {
+    color: var(--steel-light);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  nav a:hover { color: var(--white); background: rgba(43,127,212,0.15); }
+
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    letter-spacing: 0.01em !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .header-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px) !important; color: var(--navy) !important; }
+
+  /* hide nav links on mobile, keep CTA */
+  @media(max-width: 768px) {
+    nav a:not(.header-cta) { display: none; }
+    .logo-text { font-size: 0.9rem; }
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+
+  /* Pipe grid background */
+  .pipe-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(43,127,212,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(43,127,212,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* Diagonal accent lines */
+  .pipe-bg::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(26,61,110,0.6) 60%, rgba(10,22,40,0) 100%);
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  /* Pipe decoration */
+  .pipe-deco {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 45%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .pipe-deco svg { width: 100%; height: 100%; opacity: 0.12; }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,151,26,0.15);
+    border: 1px solid rgba(200,151,26,0.4);
+    color: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    max-width: 750px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  h1 em { color: var(--bright-blue); font-style: normal; }
+  h1 .amp { color: var(--gold-light); }
+
+  .hero-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--steel-light);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-weight: 300;
+    font-style: italic;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 16px 32px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(200,151,26,0.35);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,151,26,0.45); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 16px 28px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat { }
+  .stat-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--bright-blue);
+    line-height: 1;
+  }
+  .stat-stars { color: var(--gold); font-size: 1.5rem; }
+  .stat-label { color: var(--steel); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 90px 24px; }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bright-blue);
+    margin-bottom: 14px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 2px;
+    background: var(--bright-blue);
+  }
+
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--text-light);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  /* ─── PIPE DIVIDER ─── */
+  .pipe-divider {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0 0 60px;
+    max-width: 200px;
+  }
+  .pipe-divider-line {
+    height: 3px;
+    flex: 1;
+    background: var(--pipe-gradient);
+    border-radius: 2px;
+  }
+  .pipe-divider-bolt {
+    width: 10px; height: 10px;
+    background: var(--steel);
+    border-radius: 50%;
+    margin: 0 4px;
+    border: 2px solid var(--silver);
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--cream); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--silver);
+    border-radius: 10px;
+    padding: 36px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    cursor: default;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--pipe-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,61,110,0.12); border-color: var(--steel-light); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--ice), var(--silver));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border: 1px solid var(--silver);
+  }
+
+  .service-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+  .service-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.65; }
+
+  /* ─── WHY CHOOSE US ─── */
+  #why { background: var(--navy); }
+  #why h2, #why .section-label { color: var(--white); }
+  #why .section-label { color: var(--bright-blue); }
+  #why .section-desc { color: var(--steel-light); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 32px 28px;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .why-card:hover { background: rgba(43,127,212,0.1); border-color: rgba(43,127,212,0.3); }
+
+  .why-icon { font-size: 2.2rem; margin-bottom: 16px; }
+  .why-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .why-card p { font-size: 0.88rem; color: var(--steel-light); line-height: 1.65; }
+
+  .rating-hero {
+    text-align: center;
+    padding: 50px;
+    background: rgba(200,151,26,0.08);
+    border: 1px solid rgba(200,151,26,0.25);
+    border-radius: 16px;
+    margin-bottom: 48px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rating-stars { font-size: 2.2rem; letter-spacing: 4px; margin-bottom: 10px; }
+  .rating-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .rating-sub { color: var(--steel); font-size: 0.88rem; }
+
+  /* ─── REVIEWS ─── */
+  #reviews { background: var(--ice); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .review-card {
+    background: var(--white);
+    border: 1px solid var(--silver);
+    border-radius: 10px;
+    padding: 28px;
+    position: relative;
+    transition: box-shadow 0.25s;
+  }
+  .review-card:hover { box-shadow: 0 8px 30px rgba(26,61,110,0.1); }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .review-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+  .review-name { font-weight: 600; font-size: 0.95rem; color: var(--navy); }
+  .review-date { font-size: 0.78rem; color: var(--text-light); }
+  .review-stars { color: #fbbc04; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 12px; }
+  .review-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; }
+  .google-badge {
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 1.1rem;
+    opacity: 0.5;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--white);
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  @media(max-width: 768px) { .about-inner { grid-template-columns: 1fr; gap: 40px; } }
+
+  .about-visual {
+    position: relative;
+  }
+  .about-img-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 50%, var(--mid-blue) 100%);
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-placeholder {
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+  }
+  .about-placeholder .big-icon { font-size: 5rem; margin-bottom: 16px; }
+  .about-placeholder p { font-size: 0.9rem; font-family: 'Source Serif 4', serif; font-style: italic; }
+
+  .about-accent {
+    position: absolute;
+    bottom: -16px; right: -16px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 20px 24px;
+    border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    text-align: center;
+    z-index: 2;
+  }
+  .about-accent .big { font-size: 2rem; display: block; line-height: 1; }
+
+  .about-content h2 { margin-bottom: 20px; }
+  .about-content p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+  .about-content p:last-child { margin-bottom: 0; }
+  .about-content strong { color: var(--navy); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--navy); }
+  #contact h2 { color: var(--white); }
+  #contact .section-label { color: var(--bright-blue); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  @media(max-width: 900px) { .contact-inner { grid-template-columns: 1fr; } }
+
+  .contact-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    color: var(--steel-light);
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+  }
+
+  .phone-display {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .phone-icon {
+    width: 60px; height: 60px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    animation: pulse 2.5s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200,151,26,0.5); }
+    50% { box-shadow: 0 0 0 14px rgba(200,151,26,0); }
+  }
+  .phone-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .phone-number:hover { color: var(--gold-light); }
+  .phone-label { font-size: 0.78rem; color: var(--steel); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .info-items { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+  }
+  .info-item-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+  .info-item-text { font-size: 0.88rem; color: var(--steel-light); line-height: 1.5; }
+  .info-item-text strong { color: var(--white); display: block; margin-bottom: 2px; }
+
+  /* Map */
+  .map-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    height: 200px;
+    background: rgba(26,61,110,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--steel);
+    font-size: 0.88rem;
+    text-align: center;
+    gap: 8px;
+    flex-direction: column;
+  }
+  .map-wrap span { font-size: 2rem; }
+
+  /* Contact Form */
+  .contact-form {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 40px;
+  }
+  .contact-form h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    margin-bottom: 28px;
+    font-weight: 600;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  @media(max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .form-group label { font-size: 0.78rem; color: var(--steel-light); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: var(--white);
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--bright-blue);
+    background: rgba(43,127,212,0.1);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--steel); }
+  .form-group select option { background: var(--navy); color: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 15px 28px;
+    border-radius: 6px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 6px;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060f1c;
+    padding: 50px 24px 30px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+  @media(max-width: 768px) { .footer-top { grid-template-columns: 1fr; gap: 32px; } }
+
+  .footer-brand p {
+    font-size: 0.88rem;
+    color: var(--steel);
+    line-height: 1.7;
+    margin-top: 14px;
+    max-width: 320px;
+  }
+  .footer-brand .f-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold-light);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin-top: 16px;
+    font-weight: 500;
+  }
+  .footer-brand .f-phone:hover { color: var(--white); }
+
+  .footer-col h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .footer-col a, .footer-col p {
+    display: block;
+    color: var(--steel);
+    text-decoration: none;
+    font-size: 0.86rem;
+    margin-bottom: 8px;
+    line-height: 1.6;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { font-size: 0.78rem; color: var(--steel); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ─── MISC ─── */
+  .stars-gold { color: #fbbc04; }
+
+  .badge-24 {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(43,127,212,0.12);
+    border: 1px solid rgba(43,127,212,0.3);
+    color: var(--bright-blue);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header id="main-header">
+  <div class="header-inner">
+    <a href="#hero" class="logo-mark">
+      <div class="logo-icon">🔧</div>
+      <div class="logo-text">
+        VanDeusen <span style="color:var(--gold-light);display:inline;">&amp; Son</span>
+        <span>Plumbing &amp; Mechanical</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="header-cta">📞 (219) 669-1858</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="pipe-bg"></div>
+  <div class="pipe-deco">
+    <svg viewBox="0 0 500 800" xmlns="http://www.w3.org/2000/svg">
+      <!-- Abstract pipe network -->
+      <g stroke="rgba(100,160,220,1)" fill="none" stroke-linecap="round">
+        <!-- Main vertical pipe -->
+        <rect x="160" y="0" width="40" height="800" rx="6" fill="rgba(100,160,220,0.15)" stroke="rgba(100,160,220,0.4)" stroke-width="2"/>
+        <!-- Horizontal pipes -->
+        <rect x="160" y="150" width="200" height="30" rx="6" fill="rgba(100,160,220,0.1)" stroke="rgba(100,160,220,0.35)" stroke-width="2"/>
+        <rect x="160" y="380" width="160" height="30" rx="6" fill="rgba(100,160,220,0.1)" stroke="rgba(100,160,220,0.35)" stroke-width="2"/>
+        <rect x="160" y="610" width="240" height="30" rx="6" fill="rgba(100,160,220,0.1)" stroke="rgba(100,160,220,0.35)" stroke-width="2"/>
+        <!-- Vertical branches -->
+        <rect x="340" y="150" width="30" height="130" rx="6" fill="rgba(100,160,220,0.08)" stroke="rgba(100,160,220,0.3)" stroke-width="2"/>
+        <rect x="360" y="380" width="30" height="100" rx="6" fill="rgba(100,160,220,0.08)" stroke="rgba(100,160,220,0.3)" stroke-width="2"/>
+        <!-- Joints/valves -->
+        <circle cx="200" cy="165" r="18" fill="rgba(120,170,230,0.2)" stroke="rgba(120,170,230,0.5)" stroke-width="2"/>
+        <circle cx="200" cy="395" r="18" fill="rgba(120,170,230,0.2)" stroke="rgba(120,170,230,0.5)" stroke-width="2"/>
+        <circle cx="180" cy="625" r="18" fill="rgba(120,170,230,0.2)" stroke="rgba(120,170,230,0.5)" stroke-width="2"/>
+        <!-- Bolts on joints -->
+        <circle cx="200" cy="165" r="8" fill="rgba(160,190,220,0.4)"/>
+        <circle cx="200" cy="395" r="8" fill="rgba(160,190,220,0.4)"/>
+        <circle cx="180" cy="625" r="8" fill="rgba(160,190,220,0.4)"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">⭐ 5.0 Star Rated · Northwest Indiana's Trusted Plumbers</div>
+    <h1>Trusted Plumbing <span class="amp">&amp;</span><br>Mechanical Services —<br><em>Available 24/7</em></h1>
+    <p class="hero-sub">Family-owned and operated, VanDeusen & Son brings generations of craftsmanship to every job. From emergency repairs to full mechanical systems — we're here when you need us most.</p>
+    <div class="hero-actions">
+      <a href="tel:+12196691858" class="btn-primary">📞 Call Now: (219) 669-1858</a>
+      <a href="#services" class="btn-secondary">View Our Services →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-stars">★★★★★</div>
+        <div class="stat-label">5.0 · 24 Reviews</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Emergency Service</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">NWI</div>
+        <div class="stat-label">Local Experts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Generations of Service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2>Complete Plumbing &amp;<br>Mechanical Solutions</h2>
+    <p class="section-desc">From burst pipes at 2am to full commercial buildouts — our licensed team handles every job with expertise and care.</p>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🚨</div>
+        <h3>Emergency Repairs</h3>
+        <p>Burst pipes, flooding, gas leaks — we're available 24 hours a day, 7 days a week. Don't wait when it matters most. Call us now.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔥</div>
+        <h3>Water Heater Installation</h3>
+        <p>Traditional tank and tankless water heater installation, repair, and replacement. We work with all major brands and models.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🌀</div>
+        <h3>Drain Cleaning</h3>
+        <p>Clogged drains slowing you down? We use professional-grade equipment to clear blockages fast and keep your drains flowing freely.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔩</div>
+        <h3>Pipe Repair &amp; Replacement</h3>
+        <p>From pinhole leaks to full repipes, we handle copper, PEX, galvanized, and more. Expert diagnostics, lasting solutions.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">⚙️</div>
+        <h3>Mechanical Systems</h3>
+        <p>Boilers, hydronic heating, radiant systems, and more. Our mechanical expertise goes beyond basic plumbing to keep your whole system running.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🏢</div>
+        <h3>Commercial Plumbing</h3>
+        <p>Restaurants, offices, multi-family — we understand commercial demands. Licensed, insured, and experienced in commercial codes and projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CHOOSE US ─── -->
+<section id="why">
+  <div class="container">
+    <div class="section-label" style="color:var(--bright-blue);">Why VanDeusen &amp; Son</div>
+    <h2 style="color:var(--white);">Built on Trust,<br>Backed by Results</h2>
+    <p class="section-desc">We're not just another plumbing company. We're your neighbors — a family business committed to doing right by every customer in the (219).</p>
+
+    <div class="rating-hero reveal">
+      <div class="rating-stars">★★★★★</div>
+      <div class="rating-num">5.0</div>
+      <div class="rating-sub">Based on 24 Google Reviews · Perfect Score</div>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">⭐</div>
+        <h3>Perfect 5.0 Rating</h3>
+        <p>24 customers gave us 5 stars. Every single one. We don't just aim for satisfaction — we aim to exceed expectations on every single job.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">👨‍👦</div>
+        <h3>Family-Owned &amp; Operated</h3>
+        <p>The "&amp; Son" isn't just a name — it's a promise. Our family's reputation is on the line with every job, and we take that seriously.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🕐</div>
+        <h3>True 24/7 Availability</h3>
+        <p>Emergencies don't keep business hours. Neither do we. Call (219) 669-1858 any time — day, night, holidays, weekends. We answer.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">📍</div>
+        <h3>Northwest Indiana Locals</h3>
+        <p>We live and work in the 219. We know the local codes, the local infrastructure, and most importantly — the local people we serve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-label">Customer Reviews</div>
+    <h2>What Our Customers Say</h2>
+    <p class="section-desc">Don't just take our word for it. Here's what your Northwest Indiana neighbors are saying about VanDeusen & Son.</p>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="google-badge">G</div>
+        <div class="review-header">
+          <div class="review-avatar" style="background: linear-gradient(135deg,#1a3d6e,#2b7fd4);">M</div>
+          <div>
+            <div class="review-name">Mike T.</div>
+            <div class="review-date">2 weeks ago · Google</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Called at 11pm for a burst pipe emergency. They were at my house within the hour and had everything fixed before midnight. Couldn't believe the response time. These guys are the real deal."</p>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="google-badge">G</div>
+        <div class="review-header">
+          <div class="review-avatar" style="background: linear-gradient(135deg,#1e5296,#4a9fd4);">S</div>
+          <div>
+            <div class="review-name">Sandra K.</div>
+            <div class="review-date">1 month ago · Google</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Had a new water heater installed. Professional, clean, and they took the time to explain everything. Pricing was completely fair and they didn't try to upsell me on anything I didn't need. Highly recommend!"</p>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="google-badge">G</div>
+        <div class="review-header">
+          <div class="review-avatar" style="background: linear-gradient(135deg,#0a1628,#1e5296);">R</div>
+          <div>
+            <div class="review-name">Robert D.</div>
+            <div class="review-date">3 months ago · Google</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Used VanDeusen & Son for a major bathroom remodel — full rough-in plumbing. Absolutely flawless work. You can tell this is a family that takes pride in their craft. Already recommended them to three of my neighbors."</p>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="google-badge">G</div>
+        <div class="review-header">
+          <div class="review-avatar" style="background: linear-gradient(135deg,#2d4a6a,#2b7fd4);">J</div>
+          <div>
+            <div class="review-name">Jennifer M.</div>
+            <div class="review-date">5 months ago · Google</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Our drain was backing up on Christmas Eve. I didn't think anyone would come out but they did — no extra holiday hassle, just professional service. Saved our holiday. We're customers for life."</p>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="google-badge">G</div>
+        <div class="review-header">
+          <div class="review-avatar" style="background: linear-gradient(135deg,#1a3d6e,#0a6e8a);">C</div>
+          <div>
+            <div class="review-name">Chris W.</div>
+            <div class="review-date">6 months ago · Google</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Commercial job for my restaurant — they understood the codes, the timeline, and the pressure I was under to not lose service. Delivered perfectly on time and on budget. 10/10."</p>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="google-badge">G</div>
+        <div class="review-header">
+          <div class="review-avatar" style="background: linear-gradient(135deg,#1e5296,#1a3d6e);">L</div>
+          <div>
+            <div class="review-name">Linda P.</div>
+            <div class="review-date">8 months ago · Google</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Called about a strange smell in the basement — they identified a slow gas leak I never would have caught. Their thoroughness potentially saved my home. I can't thank them enough. Honest, skilled, and trustworthy."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual reveal">
+        <div class="about-img-wrap">
+          <div class="about-placeholder">
+            <div class="big-icon">🔧👷</div>
+            <p>Family-owned &amp; operated<br>in Northwest Indiana</p>
+          </div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top right, rgba(10,22,40,0.6), transparent);pointer-events:none;"></div>
+        </div>
+        <div class="about-accent">
+          <span class="big">2+</span>
+          Generations of<br>Trusted Service
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-label">Our Story</div>
+        <h2>A Legacy of Craftsmanship &amp; Community</h2>
+        <p>VanDeusen & Son Plumbing and Mechanical is more than a business — it's a family tradition. What started as one man's commitment to honest, quality plumbing work has grown into a multi-generational legacy of service to the Northwest Indiana community.</p>
+        <p><strong>The "&amp; Son" in our name matters.</strong> It means every job we take is personal. Our reputation was built not just on our own shoulders, but passed down — a standard of craftsmanship and integrity that we carry forward with pride on every call.</p>
+        <p>From emergency plumbing at odd hours to complex mechanical system installations, we bring the same dedication to every job: show up on time, do it right the first time, and treat every customer like a neighbor — because in the (219), they usually are.</p>
+        <div class="badge-24">🕐 Open 24 Hours — Call Anytime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2 style="color:var(--white);margin-bottom:48px;">Let's Solve Your<br>Plumbing Problem</h2>
+
+    <div class="contact-inner">
+      <div class="contact-info">
+        <h3>Reach us directly:</h3>
+        <div class="phone-display">
+          <div class="phone-icon">📞</div>
+          <div>
+            <a href="tel:+12196691858" class="phone-number">(219) 669-1858</a>
+            <div class="phone-label">Available 24/7 · Click to Call</div>
+          </div>
+        </div>
+
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-item-icon">🕐</div>
+            <div class="info-item-text">
+              <strong>Business Hours</strong>
+              Open 24 Hours — 7 Days a Week<br>Including Holidays &amp; Weekends
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-icon">📍</div>
+            <div class="info-item-text">
+              <strong>Service Area</strong>
+              Northwest Indiana · (219) Area Code<br>Gary, Hammond, Valparaiso &amp; Surrounding Areas
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-icon">⭐</div>
+            <div class="info-item-text">
+              <strong>Top Rated</strong>
+              5.0 Stars on Google · 24 Reviews<br>Family-Owned &amp; Operated
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <span>📍</span>
+          <div>
+            <strong style="color:var(--white);display:block;margin-bottom:4px;">Northwest Indiana Service Area</strong>
+            <small>Google Maps embed would go here</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <h3>Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(219) 555-0000">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Emergency Repair</option>
+            <option>Water Heater Installation</option>
+            <option>Drain Cleaning</option>
+            <option>Pipe Repair / Replacement</option>
+            <option>Mechanical Systems</option>
+            <option>Commercial Plumbing</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Describe Your Issue</label>
+          <textarea placeholder="Tell us what's going on — as much detail as you can..."></textarea>
+        </div>
+        <button type="button" class="form-submit">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-mark" style="text-decoration:none;">
+          <div class="logo-icon">🔧</div>
+          <div class="logo-text" style="color:var(--white);">
+            VanDeusen <span style="color:var(--gold-light);display:inline;">&amp; Son</span>
+            <span>Plumbing &amp; Mechanical</span>
+          </div>
+        </div>
+        <p>Family-owned plumbing and mechanical services serving Northwest Indiana. Available 24/7 for emergencies and scheduled work alike.</p>
+        <a href="tel:+12196691858" class="f-phone">📞 (219) 669-1858</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Emergency Repairs</a>
+        <a href="#services">Water Heater Installation</a>
+        <a href="#services">Drain Cleaning</a>
+        <a href="#services">Pipe Repair &amp; Replacement</a>
+        <a href="#services">Mechanical Systems</a>
+        <a href="#services">Commercial Plumbing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#why">Why Choose Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <p style="margin-top:12px;">⭐ 5.0 Google Rating</p>
+        <p>24 Customer Reviews</p>
+        <p>🕐 Open 24/7</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 VanDeusen &amp; Son Plumbing and Mechanical. All rights reserved.</p>
+      <p>Serving the (219) · Northwest Indiana · Licensed &amp; Insured</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header shadow
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // Stagger grid children
+  document.querySelectorAll('.services-grid, .why-grid, .reviews-grid').forEach(grid => {
+    grid.querySelectorAll('.reveal').forEach((card, i) => {
+      card.style.transitionDelay = (i * 0.07) + 's';
+    });
+  });
+
+  // Form submit placeholder
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    this.textContent = '✓ Message Sent!';
+    this.style.background = '#2b7fd4';
+    this.style.color = 'white';
+    setTimeout(() => {
+      this.textContent = 'Send Message →';
+      this.style.background = '';
+      this.style.color = '';
+    }, 3000);
+  });
+</script>
+</body>
+</html>
